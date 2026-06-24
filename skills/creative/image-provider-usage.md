@@ -12,6 +12,7 @@
 | `flux_image` | FLUX 2 Pro via fal.ai | ~$0.03-0.05 | ~5-10s | Photorealism, general purpose, workhorse |
 | `grok_image` | Grok Imagine Image (xAI) | $0.02/output + $0.002/input edit image | ~5-15s | Image edits, style transfer, multi-image compositing |
 | `openai_image` | GPT Image 1 (OpenAI) | ~$0.01-0.17 | ~5-15s | Complex instructions, text in images, multi-element |
+| `qwen_image` | Wanx 2.1 (Alibaba) | ~$0.016-0.032 | ~10-20s | Budget-friendly, multilingual, style presets |
 | `recraft_image` | Recraft V4 via fal.ai | ~$0.04-0.25 | ~5-10s | Logos, SVG vectors, brand assets, text rendering (see caveat below) |
 | `local_diffusion` | Stable Diffusion (local) | Free | ~30s+ | Offline, privacy, free |
 | `image_gen` | Multi (legacy, deprecated) | Varies | Varies | **Deprecated** — use `image_selector` or per-provider tools |
@@ -39,6 +40,7 @@
 | **Style transfer / repaint of an existing image** | `grok_image` | Native edit flow, strong promptable transforms | `openai_image` |
 | **Multi-image merge / composite** | `grok_image` | Can combine multiple source images into one scene | `openai_image` |
 | **Logo or brand asset** | `recraft_image` | SVG support, text accuracy | `openai_image` |
+| **Budget-friendly generation** | `qwen_image` | Low cost, decent quality | `flux_image` |
 | **Image with text/labels** | `openai_image` | Best text rendering (GPT Image 1) | `recraft_image` |
 | **Complex multi-element composition** | `openai_image` | Best instruction following | `flux_image` |
 | **Hero image (key visual)** | `flux_image` | Highest visual quality | `openai_image` |
