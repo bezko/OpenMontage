@@ -274,11 +274,11 @@ Google TTS offers 700+ voices across 50+ languages. Voice names follow the patte
 
 ---
 
-### OpenAI — TTS + Image Generation
+### OpenAI — TTS + Image + Video Generation
 
 > **Solid all-rounder.** DALL-E 3 handles complex multi-element compositions well. TTS is fast and affordable.
 
-**Tools unlocked:** `openai_tts`, `openai_image`
+**Tools unlocked:** `openai_tts`, `openai_image`, `sora_video`
 **Env var:** `OPENAI_API_KEY`
 
 #### Setup
@@ -309,6 +309,71 @@ Google TTS offers 700+ voices across 50+ languages. Voice names follow the patte
 **Free tier:** None. Requires prepaid billing. Previously offered $5 in free credits for new accounts (discontinued for most signups).
 
 ---
+
+### Qwen — Image Generation via DashScope
+
+> **Cost-effective image generation.** Qwen's Wanx models deliver solid quality at competitive prices, with strong multilingual prompt support and style presets.
+
+**Tools unlocked:** `qwen_image`
+**Env var:** `DASHSCOPE_API_KEY`
+
+#### Setup
+
+1. Go to [dashscope.aliyun.com](https://dashscope.aliyun.com/) and create an account
+2. Navigate to [dashscope.aliyun.com/apiKey](https://dashscope.aliyun.com/apiKey)
+3. Create a new API key
+4. Add to `.env`: `DASHSCOPE_API_KEY=sk-...`
+
+#### Pricing
+
+| Model | Speed | Quality | Price per image |
+|-------|-------|---------|----------------|
+| wanx2.1-t2i-turbo | Fast | Good | ~$0.016 |
+| wanx2.1-t2i-plus | Slower | Higher | ~$0.032 |
+
+**Free tier:** New accounts receive complimentary credits to get started.
+
+---
+
+---
+
+### StepFun — TTS + Image Editing (Step Plan)
+
+> **Included in StepFun plan.** StepAudio 2.5 TTS for Chinese/English speech. Step Image Edit 2 for instruction-based image editing. All at $0 cost within plan.
+
+**Tools unlocked:** `stepfun_tts`, `stepfun_image`
+**Env var:** `STEPFUN_API_KEY`
+
+#### Models
+
+| Model | Type | Notes |
+|-------|------|-------|
+| stepaudio-2.5-tts | TTS | Chinese + English, multilingual |
+| stepaudio-2.5-asr | ASR | Speech-to-text |
+| step-image-edit-2 | Image editing | Text+image input, instruction-based editing |
+
+**Free tier:** Included in StepFun Step Plan subscription.
+
+---
+
+### Xiaomi — TTS with Voice Cloning (MiMo)
+
+> **Included in Xiaomi plan.** MiMo V2.5 TTS with voice cloning and voice design capabilities. Supports Chinese and English.
+
+**Tools unlocked:** `xiaomi_tts`
+**Env var:** `XIAOMI_API_KEY`
+
+#### Models
+
+| Model | Type | Notes |
+|-------|------|-------|
+| mimo-v2-tts | TTS | Base TTS |
+| mimo-v2.5-tts | TTS | Improved quality |
+| mimo-v2.5-tts-voiceclone | TTS | Clone voice from reference audio |
+| mimo-v2.5-tts-voicedesign | TTS | Design voice from text description |
+| mimo-v2.5-asr | ASR | Speech-to-text |
+
+**Free tier:** Included in Xiaomi token plan.
 
 ### Runway — Gen-3/Gen-4 Video
 
@@ -732,6 +797,9 @@ These tools require only FFmpeg or Python packages — no GPU, no API key.
 | **HeyGen** | `HEYGEN_API_KEY` | `heygen_video` | Pay-as-you-go |
 | **Suno** | `SUNO_API_KEY` | `suno_music` | Pay-as-you-go |
 | **Local GPU** | `VIDEO_GEN_LOCAL_ENABLED` | `wan_video`, `hunyuan_video`, `cogvideo_video`, `ltx_video_local` | Free (GPU required) |
+| **Qwen** | `DASHSCOPE_API_KEY` | `qwen_image` | Free tier + paid |
+| **StepFun** | `STEPFUN_API_KEY` | `stepfun_tts`, `stepfun_image` | Plan included |
+| **Xiaomi** | `XIAOMI_API_KEY` | `xiaomi_tts` | Plan included |
 | **Local Diffusion** | — (install only) | `local_diffusion` | Free (GPU required) |
 | **Modal** | `MODAL_LTX2_ENDPOINT_URL` | `ltx_video_modal` | Self-hosted cloud |
 
@@ -743,7 +811,7 @@ How many providers cover each capability:
 
 | Capability | Cloud Providers | Local Providers | Free Options |
 |-----------|----------------|-----------------|--------------|
-| **Image Generation** | FLUX, Grok, Google Imagen, DALL-E 3, Recraft | Local Diffusion | Pexels, Pixabay (stock) |
+| **Image Generation** | FLUX, Grok, Google Imagen, DALL-E 3, Qwen, StepFun, Recraft | Local Diffusion | Pexels, Pixabay (stock) |
 | **Video Generation** | Grok, Kling, Runway, Veo, Higgsfield, MiniMax, HeyGen | WAN, Hunyuan, CogVideo, LTX | Pexels, Pixabay (stock) |
 | **Text-to-Speech** | ElevenLabs, Google TTS, OpenAI | Piper | Piper, Google free tier, ElevenLabs free tier |
 | **Music Generation** | ElevenLabs, Suno | — | ElevenLabs free tier |
